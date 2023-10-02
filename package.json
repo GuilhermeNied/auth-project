@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
+    "start": "node dist/index.js",
     "dev": "tsx watch src/index.ts",
     "build": "npx tsc",
     "lint": "npx eslit --fix"
