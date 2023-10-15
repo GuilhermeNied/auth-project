@@ -12,3 +12,5 @@
 ## Caso tenha escolhido o mvc
 
 - [ ] Entender com testar com Jest
+
+<img alt="Diagram" src="./diagram.png"/>
