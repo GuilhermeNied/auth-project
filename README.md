@@ -13,4 +13,6 @@
 
 - [ ] Entender com testar com Jest
 
+## Diagram
+
 <img alt="Diagram" src="./diagram.png"/>
