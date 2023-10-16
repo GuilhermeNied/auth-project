@@ -7,11 +7,11 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  res.status(201);
+  res.status(201).send();
 });
 
 router.patch('/', (req, res) => {
-  res.status(204);
+  res.status(204).send();
 });
 
 router.delete('/', (req, res) => {
