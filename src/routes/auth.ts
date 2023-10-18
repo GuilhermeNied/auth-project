@@ -1,19 +1,25 @@
-import { Router } from 'express';
+import { Request, Response, Router } from 'express';
+import { AuthController } from '../controllers/AuthController';
 
 export const router: Router = Router();
+const authController = new AuthController();
 
-router.get('/', (req, res) => {
-  res.send('Hello Auth');
+router.get('/:username', (req: Request, res: Response) => {
+  authController.get(req, res);
 });
 
-router.post('/', (req, res) => {
-  res.status(201).send();
+router.get('/users', (req: Request, res: Response) => {
+  authController.getAll(req, res);
 });
 
-router.patch('/', (req, res) => {
-  res.status(204).send();
+router.post('/register', (req: Request, res: Response) => {
+  authController.create(req, res);
 });
 
-router.delete('/', (req, res) => {
-  res.status(200).send('Deleted');
+router.patch('/:username', (req: Request, res: Response) => {
+  authController.update(req, res);
+});
+
+router.delete('/:username', (req: Request, res: Response) => {
+  authController.delete(req, res);
 });

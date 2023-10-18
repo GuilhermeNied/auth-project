@@ -9,4 +9,6 @@ app.listen(port, () => {
   console.log(`Running on port ${port}🚀`);
 });
 
-app.use('/auth', router);
+app.use(express.json());
+
+app.use('/user', router);
