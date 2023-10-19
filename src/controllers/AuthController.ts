@@ -9,12 +9,8 @@ export class AuthController {
 
     try {
       const hashedPassword = bcrypt.hashSync(password, 10);
-      console.log(hashedPassword);
 
-      const user = { name, username, hashedPassword };
-      console.log(user);
-
-      return res.status(201).json(user);
+      return res.sendStatus(201);
     } catch (error) {
       return res.status(500).json({ message: error });
     }
