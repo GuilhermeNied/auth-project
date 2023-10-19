@@ -3,10 +3,18 @@ import { Response, type Request } from 'express';
 export class AuthController {
   // constructor () {}
 
-  create(req: Request, res: Response): Response {
+  register(req: Request, res: Response): Response {
     const { name, username, password } = req.body;
+    // const hasedPassword =
     const user = { name, username, password };
+    // const
     return res.status(201).json(user);
+  }
+
+  login(req: Request, res: Response): Response {
+    const { username, password } = req.body;
+
+    return res.sendStatus(200);
   }
 
   getAll(req: Request, res: Response): Response {
