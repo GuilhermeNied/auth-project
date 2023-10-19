@@ -25,14 +25,10 @@ export class AuthController {
 
     try {
       const pass = '1234';
-      console.log(pass);
-      console.log(password);
 
       const hashedPassword = bcrypt.hashSync(pass, 10);
-      console.log(hashedPassword);
 
       const isPasswordValid = bcrypt.compareSync(password, hashedPassword);
-      console.log(isPasswordValid);
 
       if (!isPasswordValid) {
         return res.sendStatus(400);
