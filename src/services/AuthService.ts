@@ -1,4 +1,4 @@
-import { User } from '../@types/User';
+import { User } from '../entities/User';
 import { UserModel } from '../models/user';
 
 export class AuthService {
