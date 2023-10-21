@@ -2,13 +2,22 @@ import { Response, Request } from 'express';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import 'dotenv/config';
+import { AuthService } from '../services/AuthService';
 
 export class AuthController {
-  register(req: Request, res: Response): Response {
+  async register(req: Request, res: Response): Promise<Response> {
     const { name, username, password } = req.body;
+    const authService = new AuthService();
 
     try {
       const hashedPassword = bcrypt.hashSync(password, 10);
+      const userAlreadyExists = await authService.getUserByUsername(username);
+
+      if (userAlreadyExists) {
+        return res.status(400).json({ message: 'UserAlreayExists' });
+      }
+
+      authService.register(name, username, hashedPassword);
 
       return res.sendStatus(201);
     } catch (error) {
