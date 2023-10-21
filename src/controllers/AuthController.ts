@@ -51,4 +51,19 @@ export class AuthController {
       return res.status(500).json({ message: error });
     }
   }
+
+  async getUser(req: Request, res: Response): Promise<Response> {
+    const { username } = req.body;
+
+    const authService = new AuthService();
+    try {
+      const user = await authService.getUserByUsername(username);
+      if (!user) {
+        return res.sendStatus(400);
+      }
+      return res.status(200).json({ name: user.name, username: user.name });
+    } catch (error) {
+      return res.status(500).json({ message: error });
+    }
+  }
 }
