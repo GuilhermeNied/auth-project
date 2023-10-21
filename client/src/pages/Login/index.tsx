@@ -1,7 +1,7 @@
 export function Login() {
   return (
-    <div >
-      Hello Login
+    <div>
+
     </div>
   )
 }
