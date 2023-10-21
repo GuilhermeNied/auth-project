@@ -11,6 +11,4 @@ export class AuthService {
     const newUser = new UserModel({ name, username, password });
     newUser.save();
   }
-
-  // login()
 }

@@ -25,27 +25,28 @@ export class AuthController {
     }
   }
 
-  login(req: Request, res: Response): Response {
+  async login(req: Request, res: Response): Promise<Response> {
+    const authService = new AuthService();
+
     const { username, password } = req.body;
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     const jwtSecretKey: string = process.env.JWT_SECRET_KEY!;
 
     try {
-      // const pass = '1234';
-      const userId = 312312312;
+      const user = await authService.getUserByUsername(username);
 
-      // const hashedPassword = bcrypt.hashSync(pass, 10);
+      if (!user) {
+        return res.sendStatus(400);
+      }
 
-      // const isPasswordValid = bcrypt.compareSync(password, hashedPassword);
+      const isPasswordValid = bcrypt.compareSync(password, user.password);
 
-      // if (!isPasswordValid) {
-      //   return res.sendStatus(400);
-      // }
-      const token = jwt.sign({ id: userId }, jwtSecretKey);
+      if (!isPasswordValid) {
+        return res.sendStatus(400);
+      }
 
-      const user = { token, userId };
+      const token = jwt.sign({ id: user.id }, jwtSecretKey);
 
-      return res.status(200).json(user);
+      return res.status(200).json({ token, userId: user.id });
     } catch (error) {
       return res.status(500).json({ message: error });
     }
