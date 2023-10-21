@@ -1,5 +1,21 @@
+:root {
+  --white: #FFF;
+  --gray-700: #444;
+  --blue-700: #142DCC;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background: var(--white)
+  
+}
+body, button {
+  font-size: 1rem;
+  font-family: 'Roboto', sans-serif;
 }
