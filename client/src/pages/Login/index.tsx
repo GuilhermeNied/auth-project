@@ -1,4 +1,6 @@
 import { Input } from "../../components/Input";
+import { RedirectPageLink } from "../../components/RedirectPageLink";
+import { SubmitButton } from "../../components/SubmitButton";
 import './styles.css'
 
 export function Login() {
@@ -15,8 +17,10 @@ export function Login() {
           placeholder="Password"
           type="password" />
 
-        <a href="/register">a</a>
-        <button>Login</button>
+        <RedirectPageLink
+          redirectTo='/register'
+          redirectPageLinkText="If you have not registered, register here" />
+        <SubmitButton submitButtonText="Login" />
       </form>
     </div>
   )

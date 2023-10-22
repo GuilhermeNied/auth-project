@@ -1,0 +1,16 @@
+.submit-button {
+  cursor: pointer;
+  background: var(--blue-700);
+  border: 0;
+  border-radius: 5rem;
+  padding: 0.4rem;
+  color: var(--white);
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 1.2rem;
+  transition: filter 0.2s;
+}
+
+.submit-button:hover {
+  filter: brightness(0.9);
+}

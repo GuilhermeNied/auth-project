@@ -7,10 +7,9 @@
 .input-container input {
   background-color: #F0F0F0;
   border: 0;
-  height: 2rem;
   width: 100%;
   font-size: 1rem;
-  padding: 0.5rem;
+  padding: 1rem;
   border-radius: 2rem;
 }
 

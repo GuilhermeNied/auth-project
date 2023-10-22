@@ -1,0 +1,6 @@
+.redirect-page-link {
+  text-decoration: none;
+  color: var(--blue-700);
+  font-size: 1rem;
+  font-weight: 400;
+}
