@@ -7,6 +7,7 @@ export function Login() {
   return (
     <div className="login-page-container">
       <form className="login-form">
+        <h2>Login</h2>
         <Input
           labelText="Username:"
           placeholder="Username"

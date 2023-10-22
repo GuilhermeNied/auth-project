@@ -1,28 +1,34 @@
+import { Input } from '../../components/Input'
+import { RedirectPageLink } from '../../components/RedirectPageLink'
+import { SubmitButton } from '../../components/SubmitButton'
+import './styles.css'
+
+
 export function Register() {
   return (
     <div className="register-page-container">
-      <form>
-        <div>
-          <label>
-            Name
-          </label>
-          <input type="text" />
-        </div>
-        <div>
-          <label>
-            Username
-          </label>
-          <input type="text" />
+      <form className='register-form'>
+        <h2>Register</h2>
 
-        </div>
-        <div>
-          <label>
-            Password
-          </label>
-          <input type="text" />
-        </div>
-        <a href="/">b</a>
-        <button>Register</button>
+        <Input
+          labelText='Name:'
+          placeholder='Name'
+        />
+
+        <Input
+          labelText='Username:'
+          placeholder='Username'
+        />
+        <Input
+          labelText='Password:'
+          placeholder='Password'
+        />
+
+        <RedirectPageLink
+          redirectPageLinkText='If you are already registered, log in'
+          redirectTo='/'
+        />
+        <SubmitButton submitButtonText='Register' />
       </form>
     </div>
   )
