@@ -3,6 +3,7 @@ import { Login } from "./pages/Login";
 import { Register } from "./pages/Register";
 import { ColorSide } from './components/ColorSide'
 import './App.css'
+import { Home } from "./pages/Home";
 
 export function App() {
   return (
@@ -12,6 +13,7 @@ export function App() {
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/home" element={<Home />} />
         </Routes>
       </BrowserRouter>
     </div>
