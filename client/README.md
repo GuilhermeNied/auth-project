@@ -1,6 +1,6 @@
 ## Tasks
 
-- [ ] Adicionar estados para nome, username, password
+- [x] Adicionar estados para nome, username, password
 - [ ] Criar services para chamadas para api de auth
 - [ ] Fazer chamada com axios para registrar e fazer login
 - [ ] Tratar erros
