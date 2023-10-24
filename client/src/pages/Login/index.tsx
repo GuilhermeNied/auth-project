@@ -19,7 +19,6 @@ export function Login() {
     event.preventDefault()
 
     if (!isUsernameAndPasswordEmpty) {
-      console.log(username, password)
       setUsername('')
       setPassword('')
     }
