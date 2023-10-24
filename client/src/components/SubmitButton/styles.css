@@ -14,3 +14,13 @@
 .submit-button:hover {
   filter: brightness(0.9);
 }
+
+.submit-button:disabled {
+  filter: brightness(0.8);
+  cursor: not-allowed;
+}
+
+
+.submit-button:disabled:hover {
+  filter: brightness(0.8);  
+}
