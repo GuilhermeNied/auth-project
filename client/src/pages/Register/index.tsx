@@ -4,12 +4,14 @@ import { RedirectPageLink } from '../../components/RedirectPageLink'
 import { SubmitButton } from '../../components/SubmitButton'
 import './styles.css'
 import { register } from '../../services/register'
+import { useNavigate } from 'react-router-dom'
 
 
 export function Register() {
   const [name, setName] = useState('')
   const [username, setUsername] = useState<string>('')
   const [password, setPassword] = useState<string>('')
+  const navigate = useNavigate()
 
   function handleChangeInput(setValue: (event: string) => void, event: ChangeEvent<HTMLInputElement>) {
     setValue(event.target.value)
@@ -27,11 +29,16 @@ export function Register() {
     }
     try {
       await register(body)
+      setTimeout(() => {
+        navigate('/')
+      }, 500)
+
       if (!isNameUsernameAndPasswordEmpty) {
         setName('')
         setUsername('')
         setPassword('')
       }
+
     } catch (error) {
       console.log(error);
     }
