@@ -3,6 +3,7 @@ import { Input } from '../../components/Input'
 import { RedirectPageLink } from '../../components/RedirectPageLink'
 import { SubmitButton } from '../../components/SubmitButton'
 import './styles.css'
+import { register } from '../../services/register'
 
 
 export function Register() {
@@ -17,13 +18,22 @@ export function Register() {
   const isNameUsernameAndPasswordEmpty: boolean = name.length === 0 || username.length === 0 || password.length === 0
 
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
-
-    if (!isNameUsernameAndPasswordEmpty) {
-      setName('')
-      setUsername('')
-      setPassword('')
+    const body = {
+      name,
+      username,
+      password
+    }
+    try {
+      await register(body)
+      if (!isNameUsernameAndPasswordEmpty) {
+        setName('')
+        setUsername('')
+        setPassword('')
+      }
+    } catch (error) {
+      console.log(error);
     }
   }
 
