@@ -1,0 +1,17 @@
+.home-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+}
+
+.home-container h2 {
+  font-size: 3rem;
+  color: var(--blue-700);
+}
+
+.home-container span {
+  font-size: 3rem;
+  font-weight: 500;
+  text-transform: capitalize;
+}

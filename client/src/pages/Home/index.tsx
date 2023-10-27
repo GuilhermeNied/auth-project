@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { getProfile } from "../../services/getProfile"
-import { User } from "../../@types/User"
+import './styles.css'
 
 export function Home() {
   const [user, setUser] = useState<any>()
@@ -14,19 +14,18 @@ export function Home() {
     async function getUser() {
       if (token && username) {
         const userData = await getProfile(token, username)
-        console.log(userData);
-
         setUser(userData.data)
       }
     }
 
     getUser()
 
-  }, [])
+  }, [token, username])
 
   return (
-    <div>
-      {user?.username}
+    <div className="home-container">
+      <h2>Hello,</h2>
+      <span>{user?.name}</span>
     </div>
   )
 }
