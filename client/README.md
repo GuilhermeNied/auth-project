@@ -1,7 +1,7 @@
 ## Tasks
 
 - [x] Adicionar estados para nome, username, password
-- [ ] Criar services para chamadas para api de auth
+- [x] Criar services para chamadas para api de auth
 - [ ] Fazer chamada com axios para registrar e fazer login
 - [ ] Tratar erros
 - [ ] Criar componente de snackbar para tratar erros de usuario não existente, senha incorreta, etc.

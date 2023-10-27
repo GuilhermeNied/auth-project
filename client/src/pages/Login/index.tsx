@@ -3,6 +3,7 @@ import { Input } from "../../components/Input";
 import { RedirectPageLink } from "../../components/RedirectPageLink";
 import { SubmitButton } from "../../components/SubmitButton";
 import './styles.css'
+import { login } from "../../services/login";
 
 export function Login() {
   const [username, setUsername] = useState<string>('')
@@ -14,14 +15,25 @@ export function Login() {
 
   const isUsernameAndPasswordEmpty: boolean = username.length === 0 || password.length === 0
 
-
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
+    try {
+      const body = {
+        username,
+        password
+      }
+      await login(body)
 
-    if (!isUsernameAndPasswordEmpty) {
-      setUsername('')
-      setPassword('')
+      if (!isUsernameAndPasswordEmpty) {
+        setUsername('')
+        setPassword('')
+      }
+
+    } catch (error) {
+      console.log(error);
+
     }
+
   }
 
   return (
