@@ -7,3 +7,4 @@
 - [ ] Criar componente de snackbar para tratar erros de usuario não existente, senha incorreta, etc.
 - [ ] Criar rota privada para quando acessar quando só estiver logado(home)
 - [ ] Criar hook para cookies(criar, pegar e excluir)
+- [ ] Ver como não mostar a password no payload e ver se ta mostrando e outro lugar pra esconder

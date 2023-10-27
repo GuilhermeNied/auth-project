@@ -4,10 +4,12 @@ import { RedirectPageLink } from "../../components/RedirectPageLink";
 import { SubmitButton } from "../../components/SubmitButton";
 import './styles.css'
 import { login } from "../../services/login";
+import { useNavigate } from "react-router-dom";
 
 export function Login() {
   const [username, setUsername] = useState<string>('')
   const [password, setPassword] = useState<string>('')
+  const navigate = useNavigate()
 
   function handleChangeInput(setValue: (event: string) => void, event: ChangeEvent<HTMLInputElement>) {
     setValue(event.target.value)
@@ -22,7 +24,11 @@ export function Login() {
         username,
         password
       }
+
       await login(body)
+      setTimeout(() => {
+        navigate('/home')
+      }, 500)
 
       if (!isUsernameAndPasswordEmpty) {
         setUsername('')

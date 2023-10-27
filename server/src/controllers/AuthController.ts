@@ -53,7 +53,7 @@ export class AuthController {
   }
 
   async getUser(req: Request, res: Response): Promise<Response> {
-    const { username } = req.body;
+    const { userId } = req.body;
 
     const authService = new AuthService();
     try {
