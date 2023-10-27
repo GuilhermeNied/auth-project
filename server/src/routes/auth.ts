@@ -13,6 +13,6 @@ router.post('/login', (req: Request, res: Response) => {
   authController.login(req, res);
 });
 
-router.get('/profile', authMiddleware, (req: Request, res: Response) => {
+router.post('/profile', authMiddleware, (req: Request, res: Response) => {
   authController.getUser(req, res);
 });

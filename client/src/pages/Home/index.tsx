@@ -1,24 +1,32 @@
 import { useEffect, useState } from "react"
 import { getProfile } from "../../services/getProfile"
+import { User } from "../../@types/User"
 
 export function Home() {
-  const [user, setUser] = useState()
+  const [user, setUser] = useState<any>()
   const username = localStorage.getItem('username')
-  const token = localStorage.getItem('token')
+  const token = localStorage.getItem('userToken')
+
+
+
 
   useEffect(() => {
-    const getUser = async () => {
+    async function getUser() {
       if (token && username) {
-        await getProfile(token, username)
+        const userData = await getProfile(token, username)
+        console.log(userData);
 
+        setUser(userData.data)
       }
     }
 
-  }, [token, username])
+    getUser()
+
+  }, [])
 
   return (
     <div>
-      Home
+      {user?.username}
     </div>
   )
 }
