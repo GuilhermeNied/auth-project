@@ -5,10 +5,10 @@ import { getInSessionStorage, removeInSessionStorage } from "../../utils/session
 import { useNavigate } from "react-router-dom"
 
 export function Home() {
-  const [user, setUser] = useState<any>()
   const userDatas = getInSessionStorage('user')
-  const { token, username } = userDatas
   const navigate = useNavigate()
+  const [user, setUser] = useState<any>()
+  const { token, username } = userDatas
 
   const handleLogout = () => {
     removeInSessionStorage('user')
@@ -25,7 +25,6 @@ export function Home() {
     getUser()
 
   }, [token, username])
-
 
   return (
     <div className="home-container">

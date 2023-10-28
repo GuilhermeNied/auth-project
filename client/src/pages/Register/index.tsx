@@ -13,13 +13,11 @@ export function Register() {
   const [password, setPassword] = useState<string>('')
   const navigate = useNavigate()
 
-
   function handleChangeInput(setValue: (event: string) => void, event: ChangeEvent<HTMLInputElement>) {
     setValue(event.target.value)
   }
 
   const isNameUsernameAndPasswordEmpty: boolean = name.length === 0 || username.length === 0 || password.length === 0
-
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()

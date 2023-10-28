@@ -40,7 +40,6 @@ export function Login() {
     }
   }
 
-
   return (
     <div className="login-page-container">
       <form onSubmit={handleSubmit} className="login-form">
