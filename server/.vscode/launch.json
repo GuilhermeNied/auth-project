@@ -2,13 +2,10 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "type": "node",
+      "name": "Debug Typescript",
+      "command": "npm run dev",
       "request": "launch",
-      "name": "Launch Typescript Debug",
-      "skipFiles": ["<node_internals>/**"],
-      "program": "${workspaceFolder}/src/index.ts"
-      // "preLaunchTask": "npm: build"
-      // "outFiles": ["${workspaceFolder}/dist/**/*.js"]
+      "type": "node-terminal"
     }
   ]
 }
