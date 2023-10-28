@@ -11,8 +11,8 @@ export function Home() {
   const { token, username } = userDatas
 
   const handleLogout = () => {
-    removeInSessionStorage('user')
     navigate('/')
+    removeInSessionStorage('user')
   }
 
   useEffect(() => {
