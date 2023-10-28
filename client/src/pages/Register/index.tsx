@@ -6,6 +6,7 @@ import './styles.css'
 import { register } from '../../services/register'
 import { useNavigate } from 'react-router-dom'
 import { Snackbar } from '../../components/Snackbar'
+import { ColorSide } from '../../components/ColorSide'
 
 
 export function Register() {
@@ -53,6 +54,7 @@ export function Register() {
 
   return (
     <div className="register-page-container">
+      <ColorSide />
       <form onSubmit={handleSubmit} className='register-form'>
         <h2>Register</h2>
 

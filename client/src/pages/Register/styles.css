@@ -1,3 +1,9 @@
+.register-page-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 100vh;
+}
+
 .register-page-container .register-form {
   display: flex;
   flex-direction: column;

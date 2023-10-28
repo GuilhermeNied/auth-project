@@ -6,6 +6,7 @@ import './styles.css'
 import { login } from "../../services/login";
 import { useNavigate } from "react-router-dom";
 import { Snackbar } from "../../components/Snackbar";
+import { ColorSide } from "../../components/ColorSide";
 
 export function Login() {
   const [username, setUsername] = useState<string>('')
@@ -50,6 +51,7 @@ export function Login() {
 
   return (
     <div className="login-page-container">
+      <ColorSide />
       <form onSubmit={handleSubmit} className="login-form">
         <h2>Login</h2>
         <Input
