@@ -5,18 +5,23 @@ import { SubmitButton } from '../../components/SubmitButton'
 import './styles.css'
 import { register } from '../../services/register'
 import { useNavigate } from 'react-router-dom'
+import { Snackbar } from '../../components/Snackbar'
 
 
 export function Register() {
   const [name, setName] = useState('')
   const [username, setUsername] = useState<string>('')
   const [password, setPassword] = useState<string>('')
+  const [isSnackbarActive, setIsSnackbarActive] = useState<boolean>(false)
+  const [snackbarText, setSnackbarText] = useState<string>('')
   const navigate = useNavigate()
 
   function handleChangeInput(setValue: (event: string) => void, event: ChangeEvent<HTMLInputElement>) {
     setValue(event.target.value)
   }
-
+  function handleCloseSnackbar() {
+    setIsSnackbarActive(false)
+  }
   const isNameUsernameAndPasswordEmpty: boolean = name.length === 0 || username.length === 0 || password.length === 0
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -38,8 +43,11 @@ export function Register() {
         setPassword('')
       }
 
-    } catch (error) {
+    } catch (error: any) {
       console.log(error);
+
+      setSnackbarText(error.response.data.message)
+      setIsSnackbarActive(true)
     }
   }
 
@@ -79,6 +87,8 @@ export function Register() {
           redirectTo='/'
         />
         <SubmitButton submitButtonText='Register' disabled={isNameUsernameAndPasswordEmpty} />
+        <Snackbar handleCloseSnackbar={handleCloseSnackbar} text={snackbarText} isSnackbarActive={isSnackbarActive} />
+
       </form>
     </div>
   )

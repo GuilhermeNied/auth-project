@@ -14,7 +14,7 @@ export class AuthController {
       const userAlreadyExists = await authService.getUserByUsername(username);
 
       if (userAlreadyExists) {
-        return res.status(400).json({ message: 'UserAlreayExists' });
+        return res.status(400).json({ message: 'User Alreay Exists' });
       }
 
       authService.register(name, username, hashedPassword);
