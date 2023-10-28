@@ -4,10 +4,10 @@ import { Register } from "./pages/Register";
 import { ColorSide } from './components/ColorSide'
 import './App.css'
 import { Home } from "./pages/Home";
-import { getInLocalStorage } from "./utils/localStorage";
+import { getInSessionStorage } from "./utils/sessionStorage";
 
 export function App() {
-  const userDatas = getInLocalStorage('user')
+  const userDatas = getInSessionStorage('user')
   return (
     <div className="app-container">
       <BrowserRouter>

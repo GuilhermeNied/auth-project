@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react"
 import { getProfile } from "../../services/getProfile"
 import './styles.css'
-import { getInLocalStorage, removeInLocalStorage } from "../../utils/localStorage"
+import { getInSessionStorage, removeInSessionStorage } from "../../utils/sessionStorage"
 import { useNavigate } from "react-router-dom"
 
 export function Home() {
   const [user, setUser] = useState<any>()
-  const userDatas = getInLocalStorage('user')
+  const userDatas = getInSessionStorage('user')
   const { token, username } = userDatas
   const navigate = useNavigate()
 
   const handleLogout = () => {
-    removeInLocalStorage('user')
+    removeInSessionStorage('user')
     navigate('/')
   }
 
