@@ -1,7 +1,6 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { Login } from "./pages/Login";
 import { Register } from "./pages/Register";
-import './App.css'
 import { Home } from "./pages/Home";
 import { getInSessionStorage } from "./utils/sessionStorage";
 import { PrivateRoute } from "./components/PrivateRoute";
