@@ -21,7 +21,7 @@ export class AuthController {
 
       return res.sendStatus(201);
     } catch (error) {
-      return res.status(500).json({ message: error });
+      return res.sendStatus(500);
     }
   }
 
@@ -35,20 +35,22 @@ export class AuthController {
       const user = await authService.getUserByUsername(username);
 
       if (!user) {
-        return res.sendStatus(400);
+        return res.status(400).json({ message: 'User Not Found' });
       }
 
       const isPasswordValid = bcrypt.compareSync(password, user.password);
 
       if (!isPasswordValid) {
-        return res.sendStatus(400);
+        return res
+          .status(400)
+          .json({ message: 'Incorrect username or password' });
       }
 
       const token = jwt.sign({ id: user.id }, jwtSecretKey);
 
       return res.status(200).json({ token, userId: user.id });
     } catch (error) {
-      return res.status(500).json({ message: error });
+      return res.sendStatus(500);
     }
   }
 
