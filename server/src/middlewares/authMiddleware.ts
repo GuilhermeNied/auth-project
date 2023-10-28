@@ -9,12 +9,14 @@ export function authMiddleware(
 ): void | Response {
   const { authorization } = req.headers;
 
+  const authorizationToken = authorization?.split(' ')[1];
+
   const jwtSecretKey: string = process.env.JWT_SECRET_KEY!;
-  if (!authorization) {
+  if (!authorizationToken) {
     return res.sendStatus(401);
   }
 
-  jwt.verify(authorization, jwtSecretKey);
+  jwt.verify(authorizationToken, jwtSecretKey);
 
   next();
 }
