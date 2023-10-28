@@ -7,3 +7,4 @@
 - [x] Criar componente de snackbar para tratar erros de usuario não existente, senha incorreta, etc.
 - [x] Criar rota privada para quando acessar quando só estiver logado(home)
 - [ ] Utilizar lib para adicionar nos cookies o usuario
+- [ ] Estilizar botão de logout
