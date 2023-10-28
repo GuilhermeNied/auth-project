@@ -14,6 +14,7 @@ export function Login() {
   const [isSnackbarActive, setIsSnackbarActive] = useState<boolean>(false)
   const [snackbarText, setSnackbarText] = useState<string>('')
   const navigate = useNavigate()
+  const isUsernameAndPasswordEmpty: boolean = username.length === 0 || password.length === 0
 
   function handleChangeInput(setValue: (event: string) => void, event: ChangeEvent<HTMLInputElement>) {
     setValue(event.target.value)
@@ -23,7 +24,6 @@ export function Login() {
     setIsSnackbarActive(false)
   }
 
-  const isUsernameAndPasswordEmpty: boolean = username.length === 0 || password.length === 0
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
