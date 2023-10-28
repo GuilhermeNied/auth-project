@@ -3,11 +3,12 @@ import { getProfile } from "../../services/getProfile"
 import './styles.css'
 import { getInSessionStorage, removeInSessionStorage } from "../../utils/sessionStorage"
 import { useNavigate } from "react-router-dom"
+import { User } from "../../@types/User"
 
 export function Home() {
   const userDatas = getInSessionStorage('user')
   const navigate = useNavigate()
-  const [user, setUser] = useState<any>()
+  const [user, setUser] = useState<User>()
   const { token, username } = userDatas
 
   const handleLogout = () => {
