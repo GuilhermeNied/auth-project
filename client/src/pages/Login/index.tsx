@@ -37,10 +37,9 @@ export function Login() {
 
     } catch (error) {
       console.log(error);
-
     }
-
   }
+
 
   return (
     <div className="login-page-container">

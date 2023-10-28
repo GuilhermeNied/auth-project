@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { Login } from "./pages/Login";
 import { Register } from "./pages/Register";
 import { ColorSide } from './components/ColorSide'
@@ -13,8 +13,8 @@ export function App() {
       <BrowserRouter>
         <ColorSide />
         <Routes>
-          <Route path="/" element={<Login />} />
-          <Route path="/register" element={<Register />} />
+          <Route path="/" element={userDatas ? <Navigate to='/home' /> : <Login />} />
+          <Route path="/register" element={userDatas ? <Navigate to='/home' /> : <Register />} />
           <Route path="/home" element={<Home />} />
         </Routes>
       </BrowserRouter>

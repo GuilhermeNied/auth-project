@@ -13,6 +13,7 @@ export function Register() {
   const [password, setPassword] = useState<string>('')
   const navigate = useNavigate()
 
+
   function handleChangeInput(setValue: (event: string) => void, event: ChangeEvent<HTMLInputElement>) {
     setValue(event.target.value)
   }
