@@ -6,7 +6,7 @@ import { User } from "../../@types/User"
 import { useCookie } from "../../hooks/useCookie"
 
 export function Home() {
-  const { getCookies, removeCookies } = useCookie()
+  const { getCookies, removeCookies } = useCookie('user')
   const [user, setUser] = useState<User>()
 
   const userDatas = getCookies()

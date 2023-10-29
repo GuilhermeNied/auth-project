@@ -7,7 +7,7 @@ import { CookiesProvider } from "react-cookie";
 import { useCookie } from "./hooks/useCookie";
 
 export function App() {
-  const { getCookies } = useCookie()
+  const { getCookies } = useCookie('user')
   const userDatas = getCookies()
   return (
     <>

@@ -7,7 +7,7 @@ interface PrivateRouteProps {
 }
 
 export function PrivateRoute({ children }: PrivateRouteProps) {
-  const { getCookies } = useCookie()
+  const { getCookies } = useCookie('user')
 
   const user = getCookies()
   if (!user) {

@@ -14,7 +14,7 @@ export function Login() {
   const [password, setPassword] = useState<string>('')
   const [isSnackbarActive, setIsSnackbarActive] = useState<boolean>(false)
   const [snackbarText, setSnackbarText] = useState<string>('')
-  const { setCookies } = useCookie()
+  const { setCookies } = useCookie('user')
   const navigate = useNavigate()
   const isUsernameAndPasswordEmpty: boolean = username.length === 0 || password.length === 0
 
