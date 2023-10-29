@@ -1,19 +1,22 @@
 import { useEffect, useState } from "react"
 import { getProfile } from "../../services/getProfile"
 import './styles.css'
-import { getInSessionStorage, removeInSessionStorage } from "../../utils/sessionStorage"
 import { useNavigate } from "react-router-dom"
 import { User } from "../../@types/User"
+import { useCookie } from "../../hooks/useCookie"
 
 export function Home() {
-  const userDatas = getInSessionStorage('user')
-  const navigate = useNavigate()
+  const { getCookies, removeCookies } = useCookie()
   const [user, setUser] = useState<User>()
+
+  const userDatas = getCookies()
+  const navigate = useNavigate()
   const { token, username } = userDatas
+
 
   const handleLogout = () => {
     navigate('/')
-    removeInSessionStorage('user')
+    removeCookies()
   }
 
   useEffect(() => {
@@ -24,7 +27,6 @@ export function Home() {
       }
     }
     getUser()
-
   }, [token, username])
 
   return (

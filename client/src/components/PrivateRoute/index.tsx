@@ -1,13 +1,15 @@
 import { ReactNode } from "react"
-import { getInSessionStorage } from "../../utils/sessionStorage"
 import { Navigate } from "react-router-dom"
+import { useCookie } from "../../hooks/useCookie"
 
 interface PrivateRouteProps {
   children: ReactNode
 }
 
 export function PrivateRoute({ children }: PrivateRouteProps) {
-  const user = getInSessionStorage('user')
+  const { getCookies } = useCookie()
+
+  const user = getCookies()
   if (!user) {
     return <Navigate to='/' />
   }

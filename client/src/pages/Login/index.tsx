@@ -7,12 +7,14 @@ import { login } from "../../services/login";
 import { useNavigate } from "react-router-dom";
 import { Snackbar } from "../../components/Snackbar";
 import { ColorSide } from "../../components/ColorSide";
+import { useCookie } from "../../hooks/useCookie";
 
 export function Login() {
   const [username, setUsername] = useState<string>('')
   const [password, setPassword] = useState<string>('')
   const [isSnackbarActive, setIsSnackbarActive] = useState<boolean>(false)
   const [snackbarText, setSnackbarText] = useState<string>('')
+  const { setCookies } = useCookie()
   const navigate = useNavigate()
   const isUsernameAndPasswordEmpty: boolean = username.length === 0 || password.length === 0
 
@@ -24,7 +26,6 @@ export function Login() {
     setIsSnackbarActive(false)
   }
 
-
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
     try {
@@ -33,7 +34,11 @@ export function Login() {
         password
       }
 
-      await login(body)
+      const user = await login(body)
+      const { token, userId } = user.data
+      const userData = { username, token, userId }
+      setCookies(userData)
+
       setTimeout(() => {
         navigate('/home')
       }, 500)
@@ -44,6 +49,8 @@ export function Login() {
       }
 
     } catch (error: any) {
+      console.log(error);
+
       setSnackbarText(error.response.data.message)
       setIsSnackbarActive(true)
     }
