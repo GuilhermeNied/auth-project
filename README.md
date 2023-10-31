@@ -1,21 +1,23 @@
-# Tasks
+<h1 align="center" style="color:#142DCC; font-weight:700">Auth App</h1>
 
-- [x] Entender como funciona o mvc para adicionar banco e se não é melhor usar repository pattern
-- [x] Entender o bcriypt e como fazer criptografia de senha
-- [x] Entender JWT e aplicar para disponibilizar um token para usuario
-- [x] Adicionar banco
-- [x] Tratar melhor os erros deixando mais descritivo, talvez criar uma pasta com um enum só para tratar erros. Achar o padrão de pasta mais utilizado pra isso.
-- [x] Adicionar logica pra tirar o Bearer por ser um padrão não hora que é enviado o token, possivelmente fica na parte do middleware.
-- [x] Entender porque é utilizado Bearer
+<p align="center">
+  This project was made to understand the world of authentication both how we can generate tokens and encrypt passwords and how we consume this on the client side and how we keep the user logged in.
+  On the server side I use MongoDB to store data, bcrypt to encrypt password, jsonwebtoken to generate a JWT, express to create a server with node. On the client side I use React to make UI, react-cookie to save token in browser cookie and lucid-react to use icons for UI.
+</p>
 
-## Caso tenha escolhido repository pattern
+# Libs
 
-- [ ] Configurar Jest e testar os métodos
+## Client Side
 
-## Caso tenha escolhido o mvc
+- Vite
+- React cookie
+- React router dom
+- Lucide React
 
-- [ ] Entender com testar com Jest
+## Server Side
 
-## Diagram
-
-<img alt="Diagram" src="./diagram.png"/>
+- Express
+- Jsonwebtoken
+- Bcrypt
+- Cors
+- Tsx
