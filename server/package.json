@@ -8,7 +8,8 @@
     "start": "node dist/index.js",
     "dev": "tsx watch src/index.ts",
     "build": "npx tsc",
-    "lint": "npx eslit --fix"
+    "lint": "npx eslit --fix",
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
@@ -17,6 +18,7 @@
     "@types/bcrypt": "^5.0.1",
     "@types/cors": "^2.8.15",
     "@types/express": "^4.17.18",
+    "@types/jest": "^29.5.8",
     "@types/jsonwebtoken": "^9.0.4",
     "@typescript-eslint/eslint-plugin": "^6.7.4",
     "eslint": "^8.50.0",
@@ -24,6 +26,8 @@
     "eslint-plugin-import": "^2.28.1",
     "eslint-plugin-n": "^16.1.0",
     "eslint-plugin-promise": "^6.1.1",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.1",
     "tsx": "^3.13.0",
     "typescript": "^5.2.2"
   },
