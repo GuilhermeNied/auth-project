@@ -24,3 +24,5 @@ describe('Auth middleware test', () => {
     expect(next).toHaveBeenCalled();
   });
 });
+
+// Criar teste para quando der erro
